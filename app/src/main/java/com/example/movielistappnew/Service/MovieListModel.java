@@ -27,7 +27,7 @@ public class MovieListModel implements MovieListContract.Model{
 
         ApiInterface apiInterface= ApiClient.getClient().create(ApiInterface.class);
 
-        Call<MovieListResponse> call=apiInterface.getNowPlaying(API_KEY,LANGUAGE,pageNo);
+        Call<MovieListResponse> call=apiInterface.getNowPlaying(API_KEY,1);
 
         call.enqueue(new Callback<MovieListResponse>() {
             @Override
@@ -40,7 +40,7 @@ public class MovieListModel implements MovieListContract.Model{
 
             @Override
             public void onFailure(Call<MovieListResponse> call, Throwable t) {
-
+                Log.e(TAG,"Error from service");
                 Log.e(TAG, t.toString());
                 onFinishListner.onFailure(t);
             }

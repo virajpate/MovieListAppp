@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements MovieListContract
 
     @Override
     public void onResponseFailure(Throwable t) {
-
+        Log.e(TAG,t.getMessage()+"Error from MainActivity");
         Log.e(TAG,t.getMessage());
         Toast.makeText(MainActivity.this, "Error in getting data", Toast.LENGTH_LONG).show();
     }
